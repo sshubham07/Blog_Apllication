@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v11.0" nonce="5UcYX0Ea"></script>
+<title>{{blog.title}}</title>
+</head>
+<body>
+    <div class="container my-3">
+        
+        <div class="blog-post">
+
+            <h2 class="blog-post-title">{{blog.title}}</h2>
+            
+        
+            <p>{{blog.body|safe}}</p><br>
+            <div class="fb-like" data-href="http://127.0.0.1:8000/blog/{{blog.title}}" data-width="" data-layout="standard" data-action="like" data-size="large" data-share="true"></div>
+            <br>
+            <div class="fb-comments" data-href="http://127.0.0.1:8000/blog/{{blog.title}}" data-width="" data-numposts="5"></div>
+            
+        </div>
+     
+    </div>
+
+</body>
+</html>

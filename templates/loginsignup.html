@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Home Page</title>
+       
+        
+        <link href="{% static 'login.css' %}" rel="stylesheet" />
+    </head>
+    <body>
+        
+        <header class="masthead">
+            <div class="container position-relative">
+                <div class="row justify-content-center">
+                    <div class="col-xl-6">
+                        <div class="text-center text-white">
+                            <!-- Page heading-->
+                            <h1 class="mb-5">Welcome to the world's of blog!</h1>
+							                <a class="btn btn-primary" href="{% url 'signup:reg' %}">Sign Up</a>
+											<a class="btn btn-primary" href="{% url 'signup:login_view' %}">Login</a>
+                            
+                           
+        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+    </body>
+</html>

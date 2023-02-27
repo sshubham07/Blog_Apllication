@@ -1,0 +1,141 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/hi_IN/sdk.js#xfbml=1&version=v11.0" nonce="TZKtcwZG"></script>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <!--<a class="navbar-brand" href="#">Navbar</a>-->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{% url 'blog:bloglist' %}">Blog</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'blog:create' %}">Create your blog</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'blog:profile' %}">Your blog</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Categories
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <li><a class="dropdown-item" href="{% url 'blog:business' %}">Business</a></li>
+              <li><a class="dropdown-item" href="{% url 'blog:education' %}">Education</a></li>
+              <li><a class="dropdown-item" href="{% url 'blog:entertainment' %}">Entertainment</a></li>
+              <li><a class="dropdown-item" href="{% url 'blog:politics' %}">Politics</a></li>
+              <li><a class="dropdown-item" href="{% url 'blog:sports' %}">Sports</a></li>
+              <li><a class="dropdown-item" href="{% url 'blog:other' %}">others</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'blog:logout_view' %}">Logout</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  
+      
+    
+  <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active" data-bs-interval="5000">
+        <center><img src="{% static 'b3.jpg' %}" class="d-block w-50" alt="blog image1"></center>
+      </div>
+      <div class="carousel-item" data-bs-interval="5000">
+       <center> <img src="{% static 'b1.jpg' %}" class="d-block w-50" alt="blog image2" ></center>
+      </div>
+      <div class="carousel-item" data-bs-interval="5000">
+        <center><img src="{% static 'b2.jpg' %}" class="d-block w-50" alt="blog image3"></center>
+      </div>
+    </div>
+      
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"  data-bs-slide="prev">
+
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"  data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+  
+    </button>
+  </div>
+  <br>
+
+  <!--<div class="container">
+    <div class="col-md-12">
+      {% for i in blogs %}
+        <h1>{{i.title}}</h1>
+        <h6>{{i.slug}}</h6>
+        <i>Created on {{i.datetime}} </i></br>
+        <img src="{{i.image.url}}" alt="Couldn't load" style="border-radius: 12px;"></br>
+        <p>{{i.snippet}}</p>
+        
+        <p>{{i.body|safe}}</p>
+        
+        <p><i>{{i.author}}</i></p>  
+        <hr>
+        {% endfor %}
+    </div>  
+  </div>-->
+  
+  <!--<div class="container my-3">
+    
+    {% for i in blogs  %}
+    <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 my-4 position-relative">
+        <div class="col p-4 d-flex flex-column position-static">
+            <strong class="d-inline-block mb-2 text-primary">Article  by {{i.author}}</strong>
+            <h3 class="mb-0">{{i.title}}</h3>
+            <div class="mb-1 text-muted">{{post.datetime}}</div>
+            <p class="card-text mb-auto">{{i.body|safe| truncatechars:500}}</p>
+            <div class="my-2">
+            	<a href="/blog/{{i.slug}}" role="button" class="btn btn-primary">Continue reading</a>
+            </div>
+            
+        </div>
+        <div class="col-auto d-none d-lg-block">
+            <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail">
+                <title>Placeholder</title>
+                <rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text>
+            </svg>
+        </div>
+        </div>
+
+        {% endfor %}
+    </div>-->
+  
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+      {% for i in blogs %}
+    
+      <div class="col">
+        <div class="card h-100">
+          <img src="{{i.image.url}}" class="card-img-top" alt="Couldn't load">
+          <div class="card-body">
+            <h2 class="card-title">{{i.title}}</h2>
+            <p class="card-text">{{i.body|safe|truncatechars:500}}</p>
+      
+          </div>
+          <div class="my-2">
+            <a href="/blog/{{i.slug}}" role="button" class="btn btn-primary">Continue reading</a>
+          </div>
+          
+        </div>
+      </div>
+    {% endfor %}  
+    </div>
+</body>
+</html> 
